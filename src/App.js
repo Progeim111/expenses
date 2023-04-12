@@ -12,14 +12,14 @@ function App() {
         {
             date: new Date(2023, 0, 5),
             title:'New jeans',
-            price: 3.99
+            price: 99.99
         }
     ]
 
     return (
         <div className="App">
             <div className="expenses">
-            <Expenses expenses={expenses} />
+            <Expenses expenses={expenses}></Expenses>
         </div>
         </div>
     );
