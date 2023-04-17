@@ -13,25 +13,27 @@ function Expenses(props) {
         console.log('Filter change handled by Expenses.js')
         console.log(year + 'in Expenses.js')
         setSelectedYear(year);
-
     }
+
+    const filteredExpenses = props.expenses.filter(expense => {
+        return expense.date.getFullYear().toString() === selectedYear;
+    });
 
     return (
         <Card className="expenses">
             <ExpensesFilter selected={selectedYear} onChangeYear={yearChangeHandler} />
             {
-                props.expenses.map((expense) => {
+                filteredExpenses.map((expense) => {
                     return <ExpenseItem
-                        id={expense.id}
+                        key={expense.id}
                         title={expense.title}
                         amount={expense.amount}
                         date={expense.date}
-                    ></ExpenseItem>
-            })
+                    />;
+                })
             }
         </Card>
     );
 }
 
 export default Expenses;
-
